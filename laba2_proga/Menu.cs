@@ -66,6 +66,10 @@ namespace laba2_proga
 
         public MenuStrip ShowMenu(MenuStrip menu, string user, string filename = "USERS.txt")
         {
+            if (!File.Exists(filename))
+            {
+                throw new Exception("Файл не найден!");
+            }
             string[] fileLines = File.ReadAllLines(filename);
             for (int i = 0; i < fileLines.Length; i++)
             {
